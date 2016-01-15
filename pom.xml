@@ -42,6 +42,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <gpg.executable>gpg2</gpg.executable>
+        <gpg.passphrase>the_pass_phrase</gpg.passphrase>
         <gwt.version>2.8.0-beta1</gwt.version>
         <guava.version>19.0</guava.version>
         <dagger.version>2.0.2</dagger.version>
@@ -262,39 +264,50 @@
                         </executions>
                     </plugin>
 
-                    <!-- Skip running selenium tests before deploy -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${maven-surefire-plugin.version}</version>
-                        <configuration>
-                            <excludes>
-                                <exclude>${excluded-tests}</exclude>
-                            </excludes>
-                        </configuration>
-                    </plugin>
+                    <!-- Javadoc and Source Attachments -->
+<plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-source-plugin</artifactId>
+      <version>2.2.1</version>
+      <executions>
+        <execution>
+          <id>attach-sources</id>
+          <goals>
+            <goal>jar-no-fork</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-javadoc-plugin</artifactId>
+      <version>2.9.1</version>
+      <executions>
+        <execution>
+          <id>attach-javadocs</id>
+          <goals>
+            <goal>jar</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
 
-                    <!-- Compress Output for pickup by TeamCity -->
+
+                    <!-- Sign GPG -->
                     <plugin>
-                        <artifactId>maven-antrun-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>tarball</id>
-                                <phase>package</phase>
-                                <configuration>
-                                    <tasks>
-                                        <mkdir dir="build"/>
-                                        <tar destfile="build/app.tar" basedir="target/move-web-${project.version}"/>
-                                        <gzip destfile="build/move-web-${project.version}.tar.gz" src="build/app.tar"/>
-                                        <delete file="build/app.tar"/>
-                                    </tasks>
-                                </configuration>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-gpg-plugin</artifactId>
+      <version>1.5</version>
+      <executions>
+        <execution>
+          <id>sign-artifacts</id>
+          <phase>verify</phase>
+          <goals>
+            <goal>sign</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
                 </plugins>
             </build>
         </profile>
