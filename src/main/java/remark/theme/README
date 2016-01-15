@@ -1,0 +1,5 @@
+# Theme
+
+We are using a custom Grunt buld on top of the bootstrap theme's build system to generate the build and copy the resources to the public folder
+
+In the ```remark/theme``` directory run  ```npm install``` will download the necessary dependencies.  To generate new sources run 'grunt'.

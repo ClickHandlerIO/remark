@@ -1,0 +1,7 @@
+@import "../sass/global";
+
+.ladda-button {
+  &[disabled] {
+    cursor: pointer;
+  }
+}
