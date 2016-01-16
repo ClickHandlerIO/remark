@@ -13,56 +13,62 @@
     <artifactId>remark</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Remark</name>
-    <description>Control library for React + GWT</description>
+    <name>remark</name>
+    <description>React + GWT Control Library</description>
     <url>http://www.clickhandler.io</url>
     <organization>
         <name>ClickHandlerIO LLC</name>
         <url>http://www.clickhandler.io</url>
     </organization>
     <licenses>
-      <license>
-        <name>MIT License</name>
-        <url>http://www.opensource.org/licenses/mit-license.php</url>
-      </license>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
     </licenses>
     <developers>
         <developer>
-          <name>Chris Jones</name>
-          <email>jonch6@gmail.com</email>
-          <organization>ClickHandlerIO</organization>
-          <organizationUrl>http://www.clickhandler.io</organizationUrl>
+            <name>Chris Jones</name>
+            <organization>ClickHandlerIO</organization>
+            <organizationUrl>http://www.clickhandler.io</organizationUrl>
         </developer>
-    </developers>    
+        <developer>
+            <name>Bo Molocznik</name>
+            <organization>ClickHandlerIO</organization>
+            <organizationUrl>http://www.clickhandler.io</organizationUrl>
+        </developer>
+        <developer>
+            <name>Clay Molocznik</name>
+            <organization>ClickHandlerIO</organization>
+            <organizationUrl>http://www.clickhandler.io</organizationUrl>
+        </developer>
+    </developers>
     <scm>
-      <connection>scm:git:git@github.com:ClickHandlerIO/remark.git</connection>
-      <developerConnection>scm:git:git@github.com:ClickHandlerIO/remark.git</developerConnection>
-      <url>git@github.com:ClickHandlerIO/remark.git</url>
+        <connection>scm:git:git@github.com:ClickHandlerIO/remark</connection>
+        <developerConnection>scm:git:git@github.com:ClickHandlerIO/remark.git</developerConnection>
+        <url>git@github.com:ClickHandlerIO/remark</url>
     </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <gpg.executable>gpg2</gpg.executable>
-        <gpg.passphrase>the_pass_phrase</gpg.passphrase>
+        <java.version>1.8</java.version>
         <gwt.version>2.8.0-beta1</gwt.version>
-        <guava.version>19.0</guava.version>
-        <dagger.version>2.0.2</dagger.version>
-        <junit.version>4.11</junit.version>
-        <selenium.version>2.49.0</selenium.version>
-        <test-ng.version>6.1.1</test-ng.version>
-        <xml-apis.version>1.4.01</xml-apis.version>
-        <gwt-maven-plugin.version>2.8.0-SNAPSHOT</gwt-maven-plugin.version>
+        <dagger-gwt.version>0.1.0-SNAPSHOT</dagger-gwt.version>
+        <webmattr.version>0.1.0-SNAPSHOT</webmattr.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-        <maven-resources-plugin.version>2.3</maven-resources-plugin.version>
+        <gwt-maven-plugin.version>2.8.0-SNAPSHOT</gwt-maven-plugin.version>
         <build-helper-maven-plugin.version>1.10</build-helper-maven-plugin.version>
-        <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
-        <excluded-tests>**/move/selenium/**</excluded-tests>
+        <maven-resources-plugin.version>2.5</maven-resources-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.6</nexus-staging-maven-plugin.version>
     </properties>
 
-
-    <!-- ====================================================================== -->
-    <!-- R E P O S I T O R I E S                                                -->
-    <!-- ====================================================================== -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <repositories>
         <repository>
@@ -75,10 +81,15 @@
 
         <repository>
             <id>snapshots-repo</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/url</url>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
             <snapshots>
                 <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
             </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
         </repository>
     </repositories>
 
@@ -110,8 +121,6 @@
 
     <dependencies>
 
-        <!-- External Dependencies -->
-
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-user</artifactId>
@@ -130,58 +139,19 @@
             <version>${gwt.version}</version>
         </dependency>
 
-	<!-- TODO add dagger-gwt and javax-inject-gwt dependencies -->
-
         <dependency>
-            <groupId>com.google.dagger</groupId>
-            <artifactId>dagger-compiler</artifactId>
-            <version>${dagger.version}</version>
-            <optional>true</optional>
+            <groupId>io.clickhandler</groupId>
+            <artifactId>dagger-gwt</artifactId>
+            <version>${dagger-gwt.version}</version>
         </dependency>
 
-        <!-- Test Dependencies -->
-
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
+            <groupId>io.clickhandler</groupId>
+            <artifactId>webmattr</artifactId>
+            <version>${webmattr.version}</version>
         </dependency>
 
     </dependencies>
-
-
-    <!-- ====================================================================== -->
-    <!-- B U I L D                                                              -->
-    <!-- ====================================================================== -->
-
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <filtering>true</filtering>
-            </resource>
-
-            <!-- Add Dagger generated sources to classpath for Intellij (this does add to mvn build, ) -->
-            <!-- so build-helper-maven-plugin is used to provide generated sources to gwt compiler     -->
-            <resource>
-                <directory>target/generated-sources/annotations</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 
     <!-- ====================================================================== -->
@@ -190,34 +160,74 @@
 
     <profiles>
         <profile>
-            <id>dev</id>
+            <id>ossrh</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-
             <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/java</directory>
+                        <filtering>true</filtering>
+
+                        <!-- Exclude node stuff, Gulp build file, raw theme  -->
+                        <excludes>
+                            <exclude>remark/package.json</exclude>
+                            <exclude>remark/node_modules/**</exclude>
+                            <exclude>remark/Gulpfile.js</exclude>
+                            <exclude>remark/theme/**</exclude>
+                        </excludes>
+                    </resource>
+                </resources>
 
                 <plugins>
 
-                    <!-- Filter fonts and images (fonts do not work if they do not get filtered). -->
+                    <!-- Maven compiler -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>${maven-compiler-plugin.version}</version>
+                        <configuration>
+                            <source>${java.version}</source>
+                            <target>${java.version}</target>
+                        </configuration>
+                    </plugin>
+
+                    <!-- Include generated sources in output and filter fonts and images (fonts do not work if they do not get filtered). -->
+                    <plugin>
                         <artifactId>maven-resources-plugin</artifactId>
                         <version>${maven-resources-plugin.version}</version>
-                        <configuration>
-                            <nonFilteredFileExtensions>
-                                <nonFilteredFileExtension>woff</nonFilteredFileExtension>
-                                <nonFilteredFileExtension>woff2</nonFilteredFileExtension>
-                                <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
-                                <nonFilteredFileExtension>eot</nonFilteredFileExtension>
-                                <nonFilteredFileExtension>jpg</nonFilteredFileExtension>
-                                <nonFilteredFileExtension>jpeg</nonFilteredFileExtension>
-                                <nonFilteredFileExtension>gif</nonFilteredFileExtension>
-                                <nonFilteredFileExtension>png</nonFilteredFileExtension>
-                                <nonFilteredFileExtension>svg</nonFilteredFileExtension>
-                                <nonFilteredFileExtension>ico</nonFilteredFileExtension>
-                            </nonFilteredFileExtensions>
-                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>copy-resources</id>
+                                <phase>process-classes</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${basedir}/target/generated-sources/annotations</directory>
+                                            <filtering>false</filtering>
+                                        </resource>
+                                    </resources>
+
+                                    <nonFilteredFileExtensions>
+                                        <nonFilteredFileExtension>woff</nonFilteredFileExtension>
+                                        <nonFilteredFileExtension>woff2</nonFilteredFileExtension>
+                                        <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+                                        <nonFilteredFileExtension>eot</nonFilteredFileExtension>
+                                        <nonFilteredFileExtension>jpg</nonFilteredFileExtension>
+                                        <nonFilteredFileExtension>jpeg</nonFilteredFileExtension>
+                                        <nonFilteredFileExtension>gif</nonFilteredFileExtension>
+                                        <nonFilteredFileExtension>png</nonFilteredFileExtension>
+                                        <nonFilteredFileExtension>svg</nonFilteredFileExtension>
+                                        <nonFilteredFileExtension>ico</nonFilteredFileExtension>
+                                    </nonFilteredFileExtensions>
+                                </configuration>
+                            </execution>
+                        </executions>
                     </plugin>
 
                     <!-- Add Dagger generated sources to the source path. GWT compile needs this. -->
@@ -264,50 +274,37 @@
                         </executions>
                     </plugin>
 
-                    <!-- Javadoc and Source Attachments -->
-<plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-source-plugin</artifactId>
-      <version>2.2.1</version>
-      <executions>
-        <execution>
-          <id>attach-sources</id>
-          <goals>
-            <goal>jar-no-fork</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-javadoc-plugin</artifactId>
-      <version>2.9.1</version>
-      <executions>
-        <execution>
-          <id>attach-javadocs</id>
-          <goals>
-            <goal>jar</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
-
-
                     <!-- Sign GPG -->
                     <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-gpg-plugin</artifactId>
-      <version>1.5</version>
-      <executions>
-        <execution>
-          <id>sign-artifacts</id>
-          <phase>verify</phase>
-          <goals>
-            <goal>sign</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                    <passphraseServerId>clickhandler.io.gpg.passphrase</passphraseServerId>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- Deploy to maven central -->
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>${nexus-staging-maven-plugin.version}</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
