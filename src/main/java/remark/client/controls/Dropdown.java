@@ -13,7 +13,7 @@ import static webmattr.dom.DOM.*;
  *
  */
 @Singleton
-public class Dropdown extends ComponentSpec<Dropdown.Props, Dropdown.State> {
+public class Dropdown extends Component<Dropdown.Props, Dropdown.State> {
     public final Item item;
     public final Separator separator;
     private final Ref<AnchorElement> REF = Ref.make();
