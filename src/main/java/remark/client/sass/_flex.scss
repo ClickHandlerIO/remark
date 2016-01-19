@@ -2,11 +2,11 @@
   display: flex;
 }
 
-.flex.horizontal {
+.flex.row {
   flex-direction: row;
 }
 
-.flex.vertical {
+.flex.column {
   flex-direction: column;
 }
 
@@ -24,11 +24,11 @@
   }
 }
 
-.flex-align-items-center {
+.flex.align-items-center {
   align-items: center;
 }
 
-.flex-justify-content-center {
+.flex.justify-content-center {
   justify-content: center;
 }
 
