@@ -2,14 +2,13 @@
   display: flex;
 }
 
-.flex.row {
+.flex-row {
+  @extend .flex;
   flex-direction: row;
-  // Override bootstrap's .row styles
-  margin-left: 0;
-  margin-right: 0;
 }
 
-.flex.column {
+.flex-column {
+  @extend .flex;
   flex-direction: column;
 }
 
