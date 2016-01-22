@@ -64,9 +64,15 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
-                        cwd: 'base/assets/examples/css/pages/',
+                        cwd: 'base/assets/examples/css',
                         src: ['**'],
-                        dest: '../public/css/pages/'
+                        dest: '../public/css'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'base/assets/examples/css',
+                        src: ['**'],
+                        dest: '../resources/css'
                     },
                     {
                         expand: true,

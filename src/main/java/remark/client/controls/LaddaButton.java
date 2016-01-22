@@ -63,25 +63,25 @@ public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State>
         });
 
         return button($ -> $
-                .className("btn ladda-button" + " " + props.className)
-                .onClick(event -> {
-                    if (props.onClick != null) {
-                        props.onClick.handle(event);
-                    }
-                    state.status = LaddaStatus.SPINNING;
-                    $this.setState(state);
-                })
-                .ref(REF_BTN.pipe($this, buttonEl -> {
-                    buttonEl.setAttribute("data-style", $this.props().style != null ? $this.props().style.value : LaddaStyle.ZOOM_IN.value);
-                    if (props.spinnerSize != null) {
-                        buttonEl.setAttribute("data-size", props.spinnerSize.value);
-                    }
+                        .className("btn ladda-button" + " " + props.className)
+                        .type(props.type)
+                        .onClick(event -> {
+                            if (props.onClick != null) {
+                                props.onClick.handle(event);
+                            }
+                            state.status = LaddaStatus.SPINNING;
+                            $this.setState(state);
+                        })
+                        .ref(REF_BTN.pipe($this, buttonEl -> {
+                            buttonEl.setAttribute("data-style", $this.props().style != null ? $this.props().style.value : LaddaStyle.ZOOM_IN.value);
+                            if (props.spinnerSize != null) {
+                                buttonEl.setAttribute("data-size", props.spinnerSize.value);
+                            }
 
-                })),
-            span($ -> $.className("ladda-label"),
-                props.icon,
-                props.text
-            )
+                        })),
+                span($ -> $.className("ladda-label"),
+                        props.children
+                )
         );
     }
 
@@ -138,9 +138,8 @@ public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State>
     }
 
     public static class Props extends BaseProps {
-        public ReactElement icon;
-        public String text;
         public String className;
+        public String type;
         public MouseEventHandler onClick;
 
         public LaddaStatus status;
@@ -152,23 +151,39 @@ public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State>
         public Props() {
         }
 
+
         public Props className(String className) {
             this.className = className;
             return this;
         }
 
-        public Props text(String text) {
-            this.text = text;
+        public Props type(String type) {
+            this.type = type;
             return this;
         }
 
-        public Props onClick(MouseEventHandler value) {
-            this.onClick = value;
+        public Props onClick(MouseEventHandler onClick) {
+            this.onClick = onClick;
             return this;
         }
 
-        public Props style(LaddaStyle value) {
-            this.style = value;
+        public Props status(LaddaStatus status) {
+            this.status = status;
+            return this;
+        }
+
+        public Props progress(double progress) {
+            this.progress = progress;
+            return this;
+        }
+
+        public Props style(LaddaStyle style) {
+            this.style = style;
+            return this;
+        }
+
+        public Props spinnerSize(SpinnerSize spinnerSize) {
+            this.spinnerSize = spinnerSize;
             return this;
         }
     }

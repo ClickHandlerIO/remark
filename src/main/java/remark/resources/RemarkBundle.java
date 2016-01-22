@@ -98,4 +98,22 @@ public interface RemarkBundle extends ClientBundle {
 
     @ClientBundle.Source("js/components/jquery-placeholder.js")
     TextResource js_comp_jqueryPlaceholder();
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Css Resources
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Pages
+
+    @ClientBundle.Source("css/pages/login-v2.css")
+    TextResource css_pages_login_v2();
+
+    @ClientBundle.Source("css/pages/forgot-password.css")
+    TextResource css_pages_forgot_password();
+
+    // Apps
+
+    @ClientBundle.Source("css/apps/message.css")
+    TextResource css_apps_message();
 }
