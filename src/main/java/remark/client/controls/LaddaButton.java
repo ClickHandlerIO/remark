@@ -15,8 +15,8 @@ import static webmattr.dom.DOM.span;
  */
 @Singleton
 public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State> {
-    private final Ref<ButtonElement> REF_BTN = Ref.make();
-    private final Ref<Ladda> REF_LADDA = Ref.make();
+    private final Ref<ButtonElement> refBtn = Ref.make();
+    private final Ref<Ladda> refLadda = Ref.make();
 
     @Inject
     public LaddaButton() {
@@ -30,8 +30,8 @@ public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State>
     protected void componentDidMount(ReactComponent<Props, State> $this) {
         super.componentDidMount($this);
 
-        REF_BTN.get($this, btnEl -> {
-            REF_LADDA.set($this, Ladda.create(btnEl));
+        refBtn.get($this, btnEl -> {
+            refLadda.set($this, Ladda.create(btnEl));
         });
     }
 
@@ -49,7 +49,7 @@ public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State>
     @Override
     protected ReactElement render(ReactComponent<Props, State> $this, Props props, State state) {
 
-        REF_LADDA.get($this, laddaEl -> {
+        refLadda.get($this, laddaEl -> {
             switch (state.status) {
                 case DEFAULT:
                     laddaEl.stop();
@@ -63,25 +63,21 @@ public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State>
         });
 
         return button($ -> $
-                        .className("btn ladda-button" + " " + props.className)
-                        .type(props.type)
-                        .onClick(event -> {
-                            if (props.onClick != null) {
-                                props.onClick.handle(event);
-                            }
-                            state.status = LaddaStatus.SPINNING;
-                            $this.setState(state);
-                        })
-                        .ref(REF_BTN.pipe($this, buttonEl -> {
-                            buttonEl.setAttribute("data-style", $this.props().style != null ? $this.props().style.value : LaddaStyle.ZOOM_IN.value);
-                            if (props.spinnerSize != null) {
-                                buttonEl.setAttribute("data-size", props.spinnerSize.value);
-                            }
-
-                        })),
-                span($ -> $.className("ladda-label"),
-                        props.children
-                )
+                .className("btn ladda-button" + " " + props.className)
+                .type(props.type)
+                .onClick(event -> {
+                    if (props.onClick != null) {
+                        props.onClick.handle(event);
+                    }
+                    state.status = LaddaStatus.SPINNING;
+                    $this.setState(state);
+                })
+                .ref(refBtn)
+                .set("data-style", props.style != null ? props.style.value : LaddaStyle.ZOOM_IN.value)
+                .set("data-size", props.spinnerSize != null ? props.spinnerSize.value : null),
+            span($ -> $.className("ladda-label"),
+                props.children
+            )
         );
     }
 
