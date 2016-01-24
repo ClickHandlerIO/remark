@@ -91,6 +91,12 @@ module.exports = function (grunt) {
                         cwd: 'global/vendor/breakpoints',
                         src: ['**'],
                         dest: '../public/vendor/breakpoints'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'global/portraits',
+                        src: ['**'],
+                        dest: '../public/images/portraits'
                     }
                 ]
             }
