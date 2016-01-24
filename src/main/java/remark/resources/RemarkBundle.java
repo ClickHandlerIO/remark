@@ -69,7 +69,7 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("js/sections/menu.js")
     TextResource js_menu();
 
-    @ClientBundle.Source("js/sections/menu.js")
+    @ClientBundle.Source("js/sections/menubar.js")
     TextResource js_menubar();
 
     @ClientBundle.Source("js/sections/gridmenu.js")
