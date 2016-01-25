@@ -67,6 +67,9 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("vendor/matchheight/jquery.matchHeight.js")
     TextResource js_match_height();
 
+    @ClientBundle.Source("vendor/autosize/autosize.js")
+    TextResource js_autosize();
+
     // JS Scripts
 
     @ClientBundle.Source("js/core.min.js")
@@ -113,6 +116,9 @@ public interface RemarkBundle extends ClientBundle {
 
     @ClientBundle.Source("js/components/matchheight.js")
     TextResource js_comp_match_height();
+
+    @ClientBundle.Source("js/examples/apps/message.js")
+    TextResource js_app_message();
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
