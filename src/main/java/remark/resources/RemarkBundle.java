@@ -127,6 +127,9 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("css/pages/forgot-password.css")
     TextResource css_pages_forgot_password();
 
+    @ClientBundle.Source("css/dashboard/v2.css")
+    TextResource css_dashboard_v2();
+
     // Apps
 
     @ClientBundle.Source("css/apps/message.css")
