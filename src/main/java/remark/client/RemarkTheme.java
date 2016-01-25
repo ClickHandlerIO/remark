@@ -31,6 +31,9 @@ public class RemarkTheme {
         ScriptInjector.fromString(bundle.js_jqueryPlaceholder().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_spin().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_ladda().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(bundle.js_chartist().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(bundle.js_gmaps().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(bundle.js_match_height().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
 
         // Scripts
         ScriptInjector.fromString(bundle.js_core().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
@@ -46,5 +49,7 @@ public class RemarkTheme {
         ScriptInjector.fromString(bundle.js_comp_slidepanel().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_comp_switchery().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_comp_jqueryPlaceholder().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(bundle.js_comp_gmaps().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(bundle.js_comp_match_height().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
     }
 }

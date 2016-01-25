@@ -58,6 +58,15 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("vendor/ladda-bootstrap/spin.js")
     TextResource js_spin();
 
+    @ClientBundle.Source("vendor/chartist-js/chartist.js")
+    TextResource js_chartist();
+
+    @ClientBundle.Source("vendor/gmaps/gmaps.js")
+    TextResource js_gmaps();
+
+    @ClientBundle.Source("vendor/matchheight/jquery.matchHeight.js")
+    TextResource js_match_height();
+
     // JS Scripts
 
     @ClientBundle.Source("js/core.min.js")
@@ -98,6 +107,12 @@ public interface RemarkBundle extends ClientBundle {
 
     @ClientBundle.Source("js/components/jquery-placeholder.js")
     TextResource js_comp_jqueryPlaceholder();
+
+    @ClientBundle.Source("js/components/gmaps.js")
+    TextResource js_comp_gmaps();
+
+    @ClientBundle.Source("js/components/matchheight.js")
+    TextResource js_comp_match_height();
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////

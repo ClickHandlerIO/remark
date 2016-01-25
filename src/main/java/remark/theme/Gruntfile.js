@@ -46,6 +46,12 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd: 'base/assets/examples/js',
+                        src: ['**'],
+                        dest: '../resources/js/examples'
+                    },
+                    {
+                        expand: true,
                         cwd: 'base/assets/skins/',
                         src: ['**'],
                         dest: '../resources/skins/'
