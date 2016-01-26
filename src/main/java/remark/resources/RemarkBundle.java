@@ -73,6 +73,9 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("vendor/jquery-floatthead/jquery.floatThead.js")
     TextResource js_floatThead();
 
+    @ClientBundle.Source("vendor/bootstrap-treeview/bootstrap-treeview.min.js")
+    TextResource js_treeview();
+
     // JS Scripts
 
     @ClientBundle.Source("js/core.min.js")
