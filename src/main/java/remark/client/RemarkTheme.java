@@ -37,6 +37,7 @@ public class RemarkTheme {
         ScriptInjector.fromString(bundle.js_autosize().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_floatThead().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_treeview().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(bundle.js_orgChart().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
 
         // Scripts
         ScriptInjector.fromString(bundle.js_core().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();

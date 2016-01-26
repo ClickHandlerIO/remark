@@ -76,6 +76,9 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("vendor/bootstrap-treeview/bootstrap-treeview.min.js")
     TextResource js_treeview();
 
+    @ClientBundle.Source("js/orgChart/jquery.jOrgChart.js")
+    TextResource js_orgChart();
+
     // JS Scripts
 
     @ClientBundle.Source("js/core.min.js")
