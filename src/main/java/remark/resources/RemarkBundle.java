@@ -70,8 +70,8 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("vendor/autosize/autosize.js")
     TextResource js_autosize();
 
-    @ClientBundle.Source("vendor/jquery-floatthead/jquery-floatThead.js")
-    TextResource js_floatthead();
+    @ClientBundle.Source("vendor/jquery-floatthead/jquery.floatThead.js")
+    TextResource js_floatThead();
 
     // JS Scripts
 

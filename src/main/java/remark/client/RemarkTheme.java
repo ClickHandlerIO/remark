@@ -35,7 +35,7 @@ public class RemarkTheme {
         ScriptInjector.fromString(bundle.js_gmaps().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_match_height().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_autosize().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
-        ScriptInjector.fromString(bundle.js_floatthead().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(bundle.js_floatThead().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
 
         // Scripts
         ScriptInjector.fromString(bundle.js_core().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
