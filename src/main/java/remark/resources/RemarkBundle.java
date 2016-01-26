@@ -142,6 +142,9 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("css/dashboard/v2.css")
     TextResource css_dashboard_v2();
 
+    @ClientBundle.Source("css/pages/user.css")
+    TextResource css_user();
+
     // Apps
 
     @ClientBundle.Source("css/apps/message.css")
