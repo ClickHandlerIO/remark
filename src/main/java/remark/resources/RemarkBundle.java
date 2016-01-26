@@ -123,8 +123,8 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("js/components/matchheight.js")
     TextResource js_comp_match_height();
 
-    @ClientBundle.Source("js/examples/apps/message.js")
-    TextResource js_app_message();
+//    @ClientBundle.Source("js/examples/apps/message.js")
+//    TextResource js_app_message();
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
