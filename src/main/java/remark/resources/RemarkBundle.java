@@ -82,6 +82,9 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("vendor/chart-js/Chart.js")
     TextResource js_chartjs();
 
+    @ClientBundle.Source("vendor/fullcalendar/fullcalendar.js")
+    TextResource js_fullcalendar();
+
     // JS Scripts
 
     @ClientBundle.Source("js/core.min.js")
@@ -155,4 +158,7 @@ public interface RemarkBundle extends ClientBundle {
 
     @ClientBundle.Source("css/apps/message.css")
     TextResource css_apps_message();
+
+    @ClientBundle.Source("css/apps/calendar.css")
+    TextResource css_apps_calendar();
 }
