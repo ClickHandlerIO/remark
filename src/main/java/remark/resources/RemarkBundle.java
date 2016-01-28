@@ -154,6 +154,9 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("css/pages/user.css")
     TextResource css_user();
 
+    @ClientBundle.Source("css/pages/invoice.css")
+    TextResource css_invoice();
+
     // Apps
 
     @ClientBundle.Source("css/apps/message.css")
