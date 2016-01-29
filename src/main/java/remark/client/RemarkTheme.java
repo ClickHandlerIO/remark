@@ -44,9 +44,9 @@ public class RemarkTheme {
         // Scripts
         ScriptInjector.fromString(bundle.js_core().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_site().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
-        ScriptInjector.fromString(bundle.js_menu().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
-        ScriptInjector.fromString(bundle.js_menubar().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
-        ScriptInjector.fromString(bundle.js_gridmenu().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+//        ScriptInjector.fromString(bundle.js_menu().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+//        ScriptInjector.fromString(bundle.js_menubar().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+//        ScriptInjector.fromString(bundle.js_gridmenu().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_sidebar().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_configColors().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_configTour().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
