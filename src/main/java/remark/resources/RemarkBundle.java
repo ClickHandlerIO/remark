@@ -85,6 +85,9 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("vendor/fullcalendar/fullcalendar.js")
     TextResource js_fullcalendar();
 
+    @ClientBundle.Source("vendor/select2/select2.full.js")
+    TextResource js_select2();
+
     // JS Scripts
 
     @ClientBundle.Source("js/core.min.js")

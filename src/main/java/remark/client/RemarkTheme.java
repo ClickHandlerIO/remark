@@ -40,6 +40,7 @@ public class RemarkTheme {
         ScriptInjector.fromString(bundle.js_orgChart().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_chartjs().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_fullcalendar().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(bundle.js_select2().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
 
         // Scripts
         ScriptInjector.fromString(bundle.js_core().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
