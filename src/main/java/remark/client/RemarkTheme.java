@@ -58,5 +58,18 @@ public class RemarkTheme {
         ScriptInjector.fromString(bundle.js_comp_jqueryPlaceholder().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_comp_gmaps().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_comp_match_height().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Configure / Patch
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        patchBootstrapModal();
     }
+
+    // Patch bs modal so Select2 controls can be in modals and receive focus on their text search input
+    private static native void patchBootstrapModal() /*-{
+        $wnd.$.fn.modal.Constructor.prototype.enforceFocus = function () {
+        };
+    }-*/;
 }
