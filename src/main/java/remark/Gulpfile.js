@@ -27,7 +27,7 @@ gulp.task('dev', function () {
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer({browsers: [autoprefixVersions]})]))
         .pipe(concat(outputFile))
-        .pipe(nano())
+        .pipe(nano({"zindex": false}))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(outputLocation));
 });
@@ -40,7 +40,7 @@ gulp.task('deploy', function () {
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer({browsers: [autoprefixVersions]})]))
         .pipe(concat(outputFile))
-        .pipe(nano())
+        .pipe(nano({"zindex": false}))
         .pipe(gulp.dest(outputLocation));
 });
 
