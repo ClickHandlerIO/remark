@@ -69,8 +69,6 @@ public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State>
                     if (props.onClick != null) {
                         props.onClick.handle(event);
                     }
-                    state.status = LaddaStatus.SPINNING;
-                    $this.setState(state);
                 })
                 .ref(refBtn)
                 .set("data-style", props.style != null ? props.style.value : LaddaStyle.ZOOM_IN.value)
