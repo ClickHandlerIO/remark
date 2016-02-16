@@ -1,14 +1,14 @@
 package remark.client.controls;
 
 import elemental.html.ButtonElement;
-import webmattr.event.MouseEventHandler;
-import webmattr.react.*;
+import io.clickhandler.web.event.MouseEventHandler;
+import io.clickhandler.web.react.*;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import static webmattr.dom.DOM.button;
-import static webmattr.dom.DOM.span;
+import static io.clickhandler.web.dom.DOM.button;
+import static io.clickhandler.web.dom.DOM.span;
 
 /**
  *

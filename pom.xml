@@ -54,7 +54,7 @@
         <java.version>1.8</java.version>
         <gwt.version>2.8.0-beta1</gwt.version>
         <dagger-gwt.version>0.1.0-SNAPSHOT</dagger-gwt.version>
-        <webmattr.version>0.1.0-SNAPSHOT</webmattr.version>
+        <clickhandlerweb.version>0.1.0-SNAPSHOT</clickhandlerweb.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
         <gwt-maven-plugin.version>2.8.0-SNAPSHOT</gwt-maven-plugin.version>
         <build-helper-maven-plugin.version>1.10</build-helper-maven-plugin.version>
@@ -123,8 +123,8 @@
 
         <dependency>
             <groupId>io.clickhandler</groupId>
-            <artifactId>webmattr</artifactId>
-            <version>${webmattr.version}</version>
+            <artifactId>web</artifactId>
+            <version>${clickhandlerweb.version}</version>
         </dependency>
 
     </dependencies>

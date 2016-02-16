@@ -2,12 +2,12 @@ package remark.client.controls;
 
 import elemental.dom.Element;
 import elemental.html.AnchorElement;
-import webmattr.react.*;
+import io.clickhandler.web.react.*;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import static webmattr.dom.DOM.*;
+import static io.clickhandler.web.dom.DOM.*;
 
 /**
  *
