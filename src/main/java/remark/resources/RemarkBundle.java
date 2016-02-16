@@ -67,6 +67,27 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("vendor/matchheight/jquery.matchHeight.js")
     TextResource js_match_height();
 
+    @ClientBundle.Source("vendor/autosize/autosize.js")
+    TextResource js_autosize();
+
+    @ClientBundle.Source("vendor/jquery-floatthead/jquery.floatThead.js")
+    TextResource js_floatThead();
+
+    @ClientBundle.Source("vendor/bootstrap-treeview/bootstrap-treeview.min.js")
+    TextResource js_treeview();
+
+    @ClientBundle.Source("js/orgChart/jquery.jOrgChart.js")
+    TextResource js_orgChart();
+
+    @ClientBundle.Source("vendor/chart-js/Chart.js")
+    TextResource js_chartjs();
+
+    @ClientBundle.Source("vendor/fullcalendar/fullcalendar.js")
+    TextResource js_fullcalendar();
+
+    @ClientBundle.Source("vendor/select2/select2.full.js")
+    TextResource js_select2();
+
     // JS Scripts
 
     @ClientBundle.Source("js/core.min.js")
@@ -114,6 +135,9 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("js/components/matchheight.js")
     TextResource js_comp_match_height();
 
+//    @ClientBundle.Source("js/examples/apps/message.js")
+//    TextResource js_app_message();
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     // Css Resources
@@ -130,8 +154,17 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("css/dashboard/v2.css")
     TextResource css_dashboard_v2();
 
+    @ClientBundle.Source("css/pages/user.css")
+    TextResource css_user();
+
+    @ClientBundle.Source("css/pages/invoice.css")
+    TextResource css_invoice();
+
     // Apps
 
     @ClientBundle.Source("css/apps/message.css")
     TextResource css_apps_message();
+
+    @ClientBundle.Source("css/apps/calendar.css")
+    TextResource css_apps_calendar();
 }

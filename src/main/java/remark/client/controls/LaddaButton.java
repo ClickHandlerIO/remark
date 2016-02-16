@@ -63,21 +63,20 @@ public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State>
         });
 
         return button($ -> $
-                .className("btn ladda-button" + " " + props.className)
-                .type(props.type)
-                .onClick(event -> {
-                    if (props.onClick != null) {
-                        props.onClick.handle(event);
-                    }
-                    state.status = LaddaStatus.SPINNING;
-                    $this.setState(state);
-                })
-                .ref(refBtn)
-                .set("data-style", props.style != null ? props.style.value : LaddaStyle.ZOOM_IN.value)
-                .set("data-size", props.spinnerSize != null ? props.spinnerSize.value : null),
-            span($ -> $.className("ladda-label"),
-                props.children
-            )
+                        .className("btn ladda-button" + " " + props.className)
+                        .type(props.type)
+                        .style(new CSSProps())
+                        .onClick(event -> {
+                            if (props.onClick != null) {
+                                props.onClick.handle(event);
+                            }
+                        })
+                        .ref(refBtn)
+                        .set("data-style", props.laddaStyle != null ? props.laddaStyle.value : LaddaStyle.ZOOM_IN.value)
+                        .set("data-size", props.spinnerSize != null ? props.spinnerSize.value : null),
+                span($ -> $.className("ladda-label"),
+                        props.children
+                )
         );
     }
 
@@ -136,50 +135,55 @@ public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State>
     public static class Props extends BaseProps {
         public String className;
         public String type;
+        public CSSProps style;
         public MouseEventHandler onClick;
 
-        public LaddaStatus status;
+        public boolean spinning;
         public double progress; // (0.0 - 1.0)
-        public LaddaStyle style;
+        public LaddaStyle laddaStyle;
         public SpinnerSize spinnerSize;
 
         @Inject
         public Props() {
         }
 
-
-        public Props className(String className) {
-            this.className = className;
-            return this;
-        }
-
-        public Props type(String type) {
+        public Props type(final String type) {
             this.type = type;
             return this;
         }
 
-        public Props onClick(MouseEventHandler onClick) {
+        public Props laddaStyle(final LaddaStyle laddaStyle) {
+            this.laddaStyle = laddaStyle;
+            return this;
+        }
+
+        public Props onClick(final MouseEventHandler onClick) {
             this.onClick = onClick;
             return this;
         }
 
-        public Props status(LaddaStatus status) {
-            this.status = status;
-            return this;
-        }
-
-        public Props progress(double progress) {
+        public Props progress(final double progress) {
             this.progress = progress;
             return this;
         }
 
-        public Props style(LaddaStyle style) {
+        public Props spinnerSize(final SpinnerSize spinnerSize) {
+            this.spinnerSize = spinnerSize;
+            return this;
+        }
+
+        public Props spinning(final boolean spinning) {
+            this.spinning = spinning;
+            return this;
+        }
+
+        public Props style(final CSSProps style) {
             this.style = style;
             return this;
         }
 
-        public Props spinnerSize(SpinnerSize spinnerSize) {
-            this.spinnerSize = spinnerSize;
+        public Props className(final String className) {
+            this.className = className;
             return this;
         }
     }

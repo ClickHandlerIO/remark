@@ -23,76 +23,76 @@
 
       // Menubar setup
       // =============
-      if (typeof $.site.menu !== 'undefined') {
-        $.site.menu.init();
-      }
-
-      if (typeof $.site.menubar !== 'undefined') {
-        $(".site-menubar").on('changing.site.menubar', function() {
-          $('[data-toggle="menubar"]').each(function() {
-            var $this = $(this);
-            var $hamburger = $(this).find('.hamburger');
-
-            function toggle($el) {
-              $el.toggleClass('hided', !$.site.menubar.opened);
-              $el.toggleClass('unfolded', !$.site.menubar.folded);
-            }
-            if ($hamburger.length > 0) {
-              toggle($hamburger);
-            } else {
-              toggle($this);
-            }
-          });
-
-          $.site.menu.refresh();
-        });
-
-        $(document).on('click', '[data-toggle="collapse"]', function(e) {
-          var $trigger = $(e.target);
-          if (!$trigger.is('[data-toggle="collapse"]')) {
-            $trigger = $trigger.parents('[data-toggle="collapse"]');
-          }
-          var href;
-          var target = $trigger.attr('data-target') || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '');
-          var $target = $(target);
-          if ($target.hasClass('navbar-search-overlap')) {
-            $target.find('input').focus();
-
-            e.preventDefault();
-          } else if ($target.attr('id') === 'site-navbar-collapse') {
-            var isOpen = !$trigger.hasClass('collapsed');
-            $body.addClass('site-navbar-collapsing');
-
-            $body.toggleClass('site-navbar-collapse-show', isOpen);
-
-            setTimeout(function() {
-              $body.removeClass('site-navbar-collapsing');
-            }, 350);
-
-            if (isOpen) {
-              $.site.menubar.scrollable.update();
-            }
-          }
-        });
-
-        $(document).on('click', '[data-toggle="menubar"]', function() {
-          $.site.menubar.toggle();
-
-          return false;
-        });
-
-        $.site.menubar.init();
-
-        Breakpoints.on('change', function() {
-          $.site.menubar.change();
-        });
-      }
+      //if (typeof $.site.menu !== 'undefined') {
+      //  $.site.menu.init();
+      //}
+      //
+      //if (typeof $.site.menubar !== 'undefined') {
+      //  $(".site-menubar").on('changing.site.menubar', function() {
+      //    $('[data-toggle="menubar"]').each(function() {
+      //      var $this = $(this);
+      //      var $hamburger = $(this).find('.hamburger');
+      //
+      //      function toggle($el) {
+      //        $el.toggleClass('hided', !$.site.menubar.opened);
+      //        $el.toggleClass('unfolded', !$.site.menubar.folded);
+      //      }
+      //      if ($hamburger.length > 0) {
+      //        toggle($hamburger);
+      //      } else {
+      //        toggle($this);
+      //      }
+      //    });
+      //
+      //    $.site.menu.refresh();
+      //  });
+      //
+      //  $(document).on('click', '[data-toggle="collapse"]', function(e) {
+      //    var $trigger = $(e.target);
+      //    if (!$trigger.is('[data-toggle="collapse"]')) {
+      //      $trigger = $trigger.parents('[data-toggle="collapse"]');
+      //    }
+      //    var href;
+      //    var target = $trigger.attr('data-target') || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '');
+      //    var $target = $(target);
+      //    if ($target.hasClass('navbar-search-overlap')) {
+      //      $target.find('input').focus();
+      //
+      //      e.preventDefault();
+      //    } else if ($target.attr('id') === 'site-navbar-collapse') {
+      //      var isOpen = !$trigger.hasClass('collapsed');
+      //      $body.addClass('site-navbar-collapsing');
+      //
+      //      $body.toggleClass('site-navbar-collapse-show', isOpen);
+      //
+      //      setTimeout(function() {
+      //        $body.removeClass('site-navbar-collapsing');
+      //      }, 350);
+      //
+      //      if (isOpen) {
+      //        $.site.menubar.scrollable.update();
+      //      }
+      //    }
+      //  });
+      //
+      //  $(document).on('click', '[data-toggle="menubar"]', function() {
+      //    $.site.menubar.toggle();
+      //
+      //    return false;
+      //  });
+      //
+      //  $.site.menubar.init();
+      //
+      //  Breakpoints.on('change', function() {
+      //    $.site.menubar.change();
+      //  });
+      //}
 
       // Gridmenu setup
       // ==============
-      if (typeof $.site.gridmenu !== 'undefined') {
-        $.site.gridmenu.init();
-      }
+      //if (typeof $.site.gridmenu !== 'undefined') {
+      //  $.site.gridmenu.init();
+      //}
 
       // Sidebar setup
       // =============

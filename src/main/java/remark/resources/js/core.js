@@ -116,7 +116,7 @@
         ev.initEvent('resize', true, true);
         window.dispatchEvent(ev);
       } else {
-        element = document.documentElement;
+        var element = document.documentElement;
         var event = document.createEventObject();
         element.fireEvent("onresize", event);
       }
