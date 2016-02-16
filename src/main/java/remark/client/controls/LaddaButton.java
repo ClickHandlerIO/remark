@@ -1,6 +1,7 @@
 package remark.client.controls;
 
 import elemental.html.ButtonElement;
+import io.clickhandler.web.dom.CSSProps;
 import io.clickhandler.web.event.MouseEventHandler;
 import io.clickhandler.web.react.*;
 
@@ -137,6 +138,7 @@ public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State>
         public String type;
         public CSSProps style;
         public MouseEventHandler onClick;
+        public LaddaStatus status;
 
         public boolean spinning;
         public double progress; // (0.0 - 1.0)
@@ -151,6 +153,16 @@ public class LaddaButton extends Component<LaddaButton.Props, LaddaButton.State>
             this.type = type;
             return this;
         }
+
+        public LaddaStatus status() {
+            return this.status;
+        }
+
+        public Props status(final LaddaStatus status) {
+            this.status = status;
+            return this;
+        }
+
 
         public Props laddaStyle(final LaddaStyle laddaStyle) {
             this.laddaStyle = laddaStyle;
