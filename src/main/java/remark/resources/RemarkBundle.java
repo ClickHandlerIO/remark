@@ -88,6 +88,15 @@ public interface RemarkBundle extends ClientBundle {
     @ClientBundle.Source("vendor/select2/select2.full.js")
     TextResource js_select2();
 
+    @ClientBundle.Source("vendor/bootstrap-datepicker/bootstrap-datepicker.min.js")
+    TextResource js_datepicker();
+
+    @ClientBundle.Source("vendor/jt-timepicker/jquery.timepicker.min.js")
+    TextResource js_timepicker();
+
+    @ClientBundle.Source("vendor/toastr/toastr.min.js")
+    TextResource js_toastr();
+
     // JS Scripts
 
     @ClientBundle.Source("js/core.min.js")

@@ -58,6 +58,9 @@ public class RemarkTheme {
         ScriptInjector.fromString(bundle.js_comp_jqueryPlaceholder().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_comp_gmaps().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
         ScriptInjector.fromString(bundle.js_comp_match_height().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(bundle.js_datepicker().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(bundle.js_timepicker().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
+        ScriptInjector.fromString(bundle.js_toastr().getText()).setWindow(ScriptInjector.TOP_WINDOW).inject();
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
